@@ -23,8 +23,7 @@ public class quicksort {
     void quick(int a[], int start, int end) /* a[] = array to be sorted, start = Starting index, end = Ending index */
     {
         if (start < end) {
-            int p = partition(a, start, end); // p is partitioning index
-            quick(a, start, p - 1);
+            int p = partition(a, start, end);
             quick(a, p + 1, end);
         }
     }
