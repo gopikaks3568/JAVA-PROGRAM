@@ -18,16 +18,16 @@ class Employee {
 
     void input() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter Name  :");
+        System.out.println("Enter Name:");
         name = sc.nextLine();
         sc.nextLine();
-        System.out.println("Enter age  :");
+        System.out.println("Enter age:");
 
         age = sc.nextInt();
         System.out.println("Enter phone number  :");
         phno = sc.nextLine();
         sc.nextLine();
-        System.out.println("Enter salary  :");
+        System.out.println("Enter salary:");
         salary = sc.nextFloat();
         sc.nextLine();
         System.out.println("Enter address :");
@@ -37,10 +37,14 @@ class Employee {
 
     public static void main(String args[]) {
         Officer A = new Officer();
+        System.out.println("Enter the details of Officer");
         A.input();
+        System.out.println("The details of the Offcier");
         A.print();
         Manager M = new Manager();
+        System.out.println("Enter the details of Manager");
         M.input();
+        System.out.println("The details of the Manager");
         M.print();
 
     }
