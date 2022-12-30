@@ -22,7 +22,7 @@ class exceptionTest {
         } catch (ArithmeticException e) {
             System.out.println(e.getMessage());
         } finally {
-            System.out.println("Exiting");
+            System.out.println("End of Program");
         }
     }
 }
