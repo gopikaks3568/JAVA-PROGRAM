@@ -1,21 +1,18 @@
 import java.io.*;
 
-class file_rw {
+class Test {
     public static void main(String args[]) {
         try {
-            FileReader fin_1 = new FileReader("file1.txt");
-            FileReader fin_2 = new FileReader("file2.txt");
-            FileWriter fout = new FileWriter("file3.txt");
+            FileReader fin = new FileReader("output.txt");
+            FileWriter fout = new FileWriter("copy.txt");
             int i;
-            while ((i = fin_1.read()) != -1) {
+            while ((i = fin.read()) != -1) {
                 fout.write(i);
             }
-            while ((i = fin_2.read()) != -1) {
-                fout.write(i);
-            }
-            fin_1.close();
-            fin_2.close();
+            fin.close();
             fout.close();
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
