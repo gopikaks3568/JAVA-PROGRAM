@@ -16,7 +16,7 @@ public class FileIO {
             System.out.println("Enter the text:");
             String text=sc.nextLine();
             writer.write(text+"\n");
-            System.out.println("Succesfully written into the file ");
+            System.out.println("Successfully written into the file ");
             writer.close();
         } catch (Exception e) {
             e.printStackTrace();
