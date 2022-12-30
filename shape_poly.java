@@ -20,7 +20,7 @@ class Hexagon extends Shape {
     }
 }
 
-class shape_poly {
+class shape_poly{
     public static void main(String args[]) {
         Rectangle r = new Rectangle();
         Triangle t = new Triangle();
