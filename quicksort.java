@@ -1,13 +1,15 @@
+import java.util.Scanner;
+
 public class quicksort {
 
     int partition(int a[], int start, int end) {
-        int pivot = a[end]; // pivot element
+        int pivot = a[end]; 
         int i = (start - 1);
 
         for (int j = start; j <= end - 1; j++) {
-            // If current element is smaller than the pivot
+           
             if (a[j] < pivot) {
-                i++; // increment index of smaller element
+                i++; 
                 int t = a[i];
                 a[i] = a[j];
                 a[j] = t;
@@ -19,8 +21,8 @@ public class quicksort {
         return (i + 1);
     }
 
-    /* function to implement quick sort */
-    void quick(int a[], int start, int end) /* a[] = array to be sorted, start = Starting index, end = Ending index */
+  
+    void quick(int a[], int start, int end) 
     {
         if (start < end) {
             int p = partition(a, start, end);
@@ -28,7 +30,6 @@ public class quicksort {
         }
     }
 
-    /* function to print an array */
     void printArr(int a[], int n) {
         int i;
         for (i = 0; i < n; i++)
@@ -36,14 +37,21 @@ public class quicksort {
     }
 
     public static void main(String[] args) {
-        int a[] = { 13, 18, 27, 2, 19, 25 };
-        int n = a.length;
-        System.out.println("\nBefore sorting array elements are - ");
+        Scanner scan=new Scanner(System.in);
+        System.out.println("Enter the size of the array:");
+        int size=scan.nextInt();
+        int[] array= new int[size];
+        for(int i=0;i<size;i++){
+            System.out.println("Enter the element:");
+            array[i]=scan.nextInt();
+        }
+    
+        System.out.println("\nBefore sorting array elements are: ");
         quicksort q1 = new quicksort();
-        q1.printArr(a, n);
-        q1.quick(a, 0, n - 1);
-        System.out.println("\nAfter sorting array elements are - ");
-        q1.printArr(a, n);
+        q1.printArr(array, size);
+        q1.quick(array, 0, size - 1);
+        System.out.println("\nAfter sorting array elements are :");
+        q1.printArr(array, size);
         System.out.println();
     }
 }
