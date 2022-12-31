@@ -1,20 +1,76 @@
-import java.io.*;
-
-class Test {
-    public static void main(String args[]) {
-        try {
-            FileReader fin = new FileReader("output.txt");
-            FileWriter fout = new FileWriter("copy.txt");
-            int i;
-            while ((i = fin.read()) != -1) {
-                fout.write(i);
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Scanner;
+public class file_rw
+{
+    public static void main(String[] args) 
+    {
+        final String path = "Output.txt";
+        FileInputStream  fis = null;
+        try 
+        {
+            fis = new FileInputStream(path);
+            int ch;
+            String data = "";
+            while( (ch = fis.read())!= -1) 
+            {
+                data += (char)ch;
             }
-            fin.close();
-            fout.close();
-        } catch (FileNotFoundException e) {
-            System.out.println(e.getMessage());
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+            if(data != "")
+            System.out.println("File contents : "  + data);
+            else 
+            System.out.println("File Empty");
+        }
+        catch( FileNotFoundException e) 
+        {
+            System.out.println("File does not already exist.");
+        }
+        catch(IOException e) 
+        {
+            System.out.println(e);
+        }
+        finally
+        {
+            try
+            {
+                if(fis != null)
+                fis.close();
+            }catch(IOException e)
+            {
+                System.out.println(e);
+            }
+        }
+        
+        Scanner sc = null;
+        FileOutputStream fout = null;
+        try 
+        {
+            sc = new Scanner(System.in);
+            fout = new FileOutputStream(path);
+            System.out.print("Enter a string to save: ");
+            String data = sc.nextLine();
+            byte b[] = data.getBytes();
+            fout.write(b);
+        }
+        catch(IOException e) 
+        {
+            System.out.println(e);
+        }
+        finally 
+        {
+            try 
+            {
+                if(sc != null)
+                    sc.close();
+                if(fout != null)
+                    fout.close();
+            }
+            catch(IOException e) 
+            {
+                System.out.println(e);
+            }
         }
     }
 }
